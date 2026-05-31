@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int l = 0, r = (int)s.size() - 1;
+        while(l < r) {
+            while(l <= r and !isalnum(s[l])) l++;
+            while(r >= l and !isalnum(s[r])) r--;
+            if(l < r) {
+                if(tolower(s[l]) != tolower(s[r])) return false;
+                l++; r--;
+            }
+        }
+        return true;
+    }
+};
